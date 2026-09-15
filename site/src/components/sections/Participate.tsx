@@ -1,0 +1,100 @@
+import { Section, SectionHeading } from '@/components/ui/Section'
+import { Reveal } from '@/components/ui/Reveal'
+import { ActionButton, LinkButton } from '@/components/ui/Button'
+import { ArrowRightIcon, CheckIcon, CopyIcon, InstagramIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { ministry, participation, type Participation } from '@/content/site'
+import { whatsappLink } from '@/lib/whatsapp'
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
+
+function ParticipationCta({ item }: { item: Participation }) {
+  const { state, copy } = useCopyToClipboard()
+
+  if (item.kind === 'pix') {
+    const copied = state === 'copied'
+    return (
+      <div className="mt-6">
+        <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-paper/55 uppercase">
+          Chave Pix
+        </p>
+        <p className="mt-1 truncate font-mono text-sm text-paper" title={ministry.pix.key}>
+          {ministry.pix.key}
+        </p>
+        <p className="text-xs text-sand">{ministry.pix.holder}</p>
+        <ActionButton
+          onClick={() => void copy(ministry.pix.key)}
+          className="mt-4 w-full"
+          aria-live="polite"
+        >
+          {copied ? <CheckIcon className="h-4 w-4" /> : <CopyIcon className="h-4 w-4" />}
+          {copied ? 'Chave copiada' : state === 'error' ? 'Não deu pra copiar' : item.ctaLabel}
+        </ActionButton>
+      </div>
+    )
+  }
+
+  if (item.kind === 'instagram') {
+    return (
+      <LinkButton
+        href={ministry.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="outline"
+        className="mt-6 w-full"
+      >
+        <InstagramIcon className="h-4 w-4" />
+        {item.ctaLabel}
+      </LinkButton>
+    )
+  }
+
+  return (
+    <LinkButton
+      href={whatsappLink(item.whatsappMessage)}
+      target="_blank"
+      rel="noopener noreferrer"
+      variant="outline"
+      className="mt-6 w-full"
+    >
+      <WhatsAppIcon className="h-4 w-4" />
+      {item.ctaLabel}
+    </LinkButton>
+  )
+}
+
+export function Participate() {
+  return (
+    <Section id="participe" labelledBy="participe-title" className="grain bg-mata-950">
+      <Reveal>
+        <SectionHeading
+          id="participe-title"
+          eyebrow="Como participar"
+          title="A missão pertence a Deus. A gente participa dela."
+          description="Cinco formas de fazer parte do Conexão Entre os Povos. Nenhuma é menor que a outra: quem ora sustenta tanto quanto quem vai."
+          align="center"
+        />
+      </Reveal>
+
+      <ul className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {participation.map((item, index) => (
+          <Reveal
+            as="li"
+            key={item.id}
+            delay={0.08 * index}
+            className={item.kind === 'pix' ? 'sm:col-span-2 lg:col-span-1' : undefined}
+          >
+            <article className="flex h-full flex-col rounded-[var(--radius-card)] border border-line bg-night/60 p-7 backdrop-blur-sm transition-colors hover:border-line-strong">
+              <div className="flex items-center justify-between">
+                <h3 className="font-display text-2xl font-light tracking-tight text-paper">{item.title}</h3>
+                <ArrowRightIcon className="h-5 w-5 text-terra-400" />
+              </div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-sand text-pretty sm:text-base">
+                {item.text}
+              </p>
+              <ParticipationCta item={item} />
+            </article>
+          </Reveal>
+        ))}
+      </ul>
+    </Section>
+  )
+}
