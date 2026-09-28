@@ -2,22 +2,30 @@
 
 Site institucional do Ministério Conexão Entre os Povos (Kamilly Guimarães Patrocínio).
 
-- `site/`: React + TypeScript + Vite + Tailwind 4 + Framer Motion
+React + TypeScript + Vite + Tailwind 4 + Framer Motion.
+
+## Estrutura
+
+- `index.html`, `src/`, `public/`: o site
+- `src/content/site.ts`: todo o conteúdo editável (textos, contato, Pix)
 - `identidade/`: logo, paleta, elementos e fotos extraídos do manual de marca
-- `material-kamily/`: PDFs originais enviados pela Kamilly
-- `briefing.md`: contexto, estrutura do site e pendências
+- `netlify.toml`: build e cabeçalhos do deploy na Netlify
 
 ## Rodar
 
 ```bash
-cd site
 npm install
 npm run dev
 ```
 
 `npm run build` roda o `tsc` strict e gera `dist/`.
 
+## Deploy
+
+Na Netlify, basta conectar o repositório: o `netlify.toml` já define
+`npm run build` como comando e `dist` como pasta publicada.
+
 ## Antes de publicar
 
-Preencher em `site/src/content/site.ts` os campos marcados como PENDENTE
-(WhatsApp, Instagram, e-mail, chave Pix) e trocar o bloco da fundadora por uma foto real.
+Preencher em `src/content/site.ts` os campos marcados como PENDENTE
+(WhatsApp e chave Pix).
