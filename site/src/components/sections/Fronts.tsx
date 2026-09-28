@@ -1,11 +1,14 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { Timeline, TimelineItem } from '@/components/ui/Timeline'
 import { fronts } from '@/content/site'
 
 export function Fronts() {
   return (
     <Section id="frentes" labelledBy="frentes-title" className="bg-ink">
+      <Silhouette name="sertanejo" className="top-[24rem] right-[6%] hidden w-64 opacity-10 md:block" />
+      <Silhouette name="capim" className="bottom-0 left-0 w-full opacity-10" />
       <Reveal>
         <SectionHeading
           id="frentes-title"

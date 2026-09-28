@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { Timeline, TimelineItem } from '@/components/ui/Timeline'
 import { methodPhases, quote } from '@/content/site'
 
@@ -10,6 +11,8 @@ const phaseOffsets = methodPhases.map((_, index) =>
 export function Method() {
   return (
     <Section id="caminho" labelledBy="caminho-title" className="bg-night">
+      <Silhouette name="indigena" className="top-[30rem] right-[10%] hidden w-36 opacity-10 md:block" />
+      <Silhouette name="peixes" className="bottom-12 -left-10 w-72 opacity-10 sm:w-96" />
       <Reveal>
         <SectionHeading
           id="caminho-title"

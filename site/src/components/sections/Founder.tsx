@@ -1,10 +1,12 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { founder } from '@/content/site'
 
 export function Founder() {
   return (
     <Section id="fundadora" labelledBy="fundadora-title" className="bg-white">
+      <Silhouette name="sertanejo" tone="terra" className="right-6 bottom-8 w-40 opacity-15 sm:right-12 sm:w-56" />
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
           <figure className="relative">

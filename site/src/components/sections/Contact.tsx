@@ -1,6 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
-import { FishTexture } from '@/components/ui/FishTexture'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
 import { ministry, verses } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
@@ -68,8 +68,8 @@ export function Contact() {
         </div>
 
         <Reveal delay={0.15} className="min-w-0">
-          <div className="grain relative isolate h-full overflow-hidden rounded-[var(--radius-card)] bg-mata-950 p-8 sm:p-10">
-            <FishTexture className="right-0 bottom-6 w-2/3 opacity-15" />
+          <div className="grain relative isolate h-full overflow-hidden rounded-[var(--radius-card)] bg-night p-8 sm:p-10">
+            <Silhouette name="peixes" className="right-0 bottom-6 w-2/3 opacity-15" />
             <p className="font-display text-xs font-semibold tracking-[0.26em] text-terra-400 uppercase">
               Fundamento bíblico
             </p>

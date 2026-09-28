@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { peoples, type PeopleAccent } from '@/content/site'
 import { cn } from '@/lib/cn'
 
@@ -12,6 +13,7 @@ const accentStyles: Record<PeopleAccent, { bar: string; label: string; glow: str
 export function Peoples() {
   return (
     <Section id="povos" labelledBy="povos-title" className="bg-night">
+      <Silhouette name="passaros" className="top-16 -right-8 w-64 opacity-10 sm:w-96" />
       <Reveal>
         <SectionHeading
           id="povos-title"

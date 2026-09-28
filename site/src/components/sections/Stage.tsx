@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { LinkButton } from '@/components/ui/Button'
 import { stage, type MilestoneStatus } from '@/content/site'
 import { cn } from '@/lib/cn'
@@ -17,6 +18,7 @@ const statusStyles: Record<MilestoneStatus, { dot: string; card: string; period:
 export function Stage() {
   return (
     <Section id="agora" labelledBy="agora-title" className="bg-ink">
+      <Silhouette name="passaros" className="top-12 -right-10 w-56 -scale-x-100 opacity-10 sm:w-80" />
       <Reveal>
         <SectionHeading
           id="agora-title"

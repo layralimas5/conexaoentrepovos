@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container'
-import { FishTexture } from '@/components/ui/FishTexture'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
 import { identity, ministry, navLinks } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
@@ -35,9 +35,9 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="grain relative isolate overflow-hidden bg-mata-950">
-      <FishTexture className="bottom-20 -right-16 w-72 opacity-10 sm:w-96" />
-      <FishTexture className="bottom-24 -left-10 hidden w-80 -scale-x-100 opacity-[0.07] md:block" />
+    <footer className="grain relative isolate overflow-hidden border-t border-line bg-night">
+      <Silhouette name="peixes" className="bottom-20 -right-16 w-72 opacity-10 sm:w-96" />
+      <Silhouette name="capim" className="bottom-0 left-0 w-full opacity-[0.08]" />
       <Container className="py-14">
         <IdentityBand />
         <div className="mt-12 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">

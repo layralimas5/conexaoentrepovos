@@ -1,10 +1,12 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { why } from '@/content/site'
 
 export function WhyWeExist() {
   return (
     <Section id="porque" labelledBy="porque-title" className="bg-white">
+      <Silhouette name="indigena" tone="terra" className="right-6 bottom-12 w-32 opacity-15 sm:right-16 sm:w-44" />
       <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
         <div>
           <Reveal>
