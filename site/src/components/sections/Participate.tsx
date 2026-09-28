@@ -13,7 +13,7 @@ function PixCta({ label }: { label: string }) {
   const copied = state === 'copied'
 
   return (
-    <div className="mt-6">
+    <div className="mt-4 sm:mt-6">
       <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-paper/55 uppercase">Chave Pix</p>
       <p className="mt-1 truncate font-mono text-sm text-paper" title={ministry.pix.key}>
         {ministry.pix.key}
@@ -36,7 +36,7 @@ function ParticipationCta({ item }: { item: Participation }) {
       target="_blank"
       rel="noopener noreferrer"
       variant="outline"
-      className="mt-6 w-full"
+      className="mt-4 w-full sm:mt-6"
     >
       <WhatsAppIcon className="h-4 w-4" />
       {item.ctaLabel}
@@ -47,8 +47,8 @@ function ParticipationCta({ item }: { item: Participation }) {
 export function Participate() {
   return (
     <Section id="participe" labelledBy="participe-title" className="grain bg-night">
-      <Silhouette name="peixes" className="top-16 -right-10 w-64 opacity-15 sm:w-80" />
-      <Silhouette name="indigena" className="bottom-10 left-4 w-24 opacity-10 sm:left-10 sm:w-32" />
+      <Silhouette name="peixes" className="top-4 -right-10 w-44 opacity-10 sm:top-16 sm:w-80 sm:opacity-15" />
+      <Silhouette name="indigena" className="bottom-10 left-4 w-24 opacity-0 sm:left-10 sm:w-32 sm:opacity-10" />
       <Reveal>
         <SectionHeading
           id="participe-title"
@@ -59,12 +59,12 @@ export function Participate() {
         />
       </Reveal>
 
-      <div className="mt-16 space-y-16">
+      <div className="mt-10 space-y-10 sm:mt-16 sm:space-y-16">
         {participationGroups.map((group) => (
           <section key={group.id} aria-labelledby={`participe-${group.id}`}>
             <Reveal>
-              <header className="flex flex-col gap-2 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
-                <h3 id={`participe-${group.id}`} className="font-display text-2xl font-light tracking-tight text-paper">
+              <header className="flex flex-col gap-1 border-b border-line pb-4 sm:gap-2 sm:pb-5 sm:flex-row sm:items-end sm:justify-between">
+                <h3 id={`participe-${group.id}`} className="font-display text-xl font-light tracking-tight text-paper sm:text-2xl">
                   {group.title}
                 </h3>
                 <p className="text-sm text-sand">{group.text}</p>
@@ -73,7 +73,7 @@ export function Participate() {
 
             <ul
               className={cn(
-                'mt-6 grid gap-5 sm:grid-cols-2',
+                'mt-4 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5',
                 group.items.length > 2 ? 'lg:grid-cols-3' : 'lg:grid-cols-2',
               )}
             >
@@ -86,15 +86,15 @@ export function Participate() {
                 >
                   <article
                     className={cn(
-                      'flex h-full flex-col rounded-[var(--radius-card)] border bg-night/60 p-7 backdrop-blur-sm transition-colors',
+                      'flex h-full flex-col rounded-[var(--radius-card)] border bg-night/60 p-5 transition-colors sm:p-7 sm:backdrop-blur-sm',
                       item.kind === 'pix' ? 'border-terra-400/50' : 'border-line hover:border-line-strong',
                     )}
                   >
                     <div className="flex items-center justify-between">
-                      <h4 className="font-display text-2xl font-light tracking-tight text-paper">{item.title}</h4>
-                      <ArrowRightIcon className="h-5 w-5 text-terra-400" />
+                      <h4 className="font-display text-xl font-light tracking-tight text-paper sm:text-2xl">{item.title}</h4>
+                      <ArrowRightIcon className="hidden h-5 w-5 text-terra-400 sm:block" />
                     </div>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-sand text-pretty sm:text-base">{item.text}</p>
+                    <p className="mt-1.5 flex-1 text-[15px] leading-relaxed text-sand text-pretty sm:mt-3 sm:text-base">{item.text}</p>
                     <ParticipationCta item={item} />
                   </article>
                 </Reveal>

@@ -23,7 +23,7 @@ export function Timeline({ children, surfaceColor, className }: TimelineProps) {
     <div className={cn('relative', className)}>
       <div
         aria-hidden="true"
-        className="absolute top-0 bottom-0 left-3 w-px -translate-x-1/2 bg-line-strong md:left-1/2"
+        className="absolute top-0 bottom-0 left-2.5 w-px -translate-x-1/2 bg-line-strong md:left-1/2"
       >
         <motion.div
           className="h-full w-full origin-top bg-terra-400"
@@ -32,7 +32,7 @@ export function Timeline({ children, surfaceColor, className }: TimelineProps) {
       </div>
       <ol
         ref={listRef}
-        className="relative space-y-10 md:space-y-0 md:[&>li+li]:-mt-24"
+        className="relative space-y-5 sm:space-y-8 md:space-y-0 md:[&>li+li]:-mt-24"
         style={{ '--timeline-surface': surfaceColor } as CSSProperties}
       >
         {children}
@@ -56,12 +56,12 @@ export function TimelineItem({ index, children }: TimelineItemProps) {
   return (
     <li
       ref={itemRef}
-      className="relative grid grid-cols-[1.5rem_1fr] gap-5 md:grid-cols-[1fr_3rem_1fr] md:gap-0"
+      className="relative grid grid-cols-[1.25rem_1fr] gap-3.5 sm:gap-5 md:grid-cols-[1fr_3rem_1fr] md:gap-0"
     >
       <span
         aria-hidden="true"
         className={cn(
-          'relative col-start-1 row-start-1 mt-9 flex h-6 w-6 items-center justify-center justify-self-center rounded-full border-2 bg-[var(--timeline-surface)] transition-colors duration-500 md:col-start-2',
+          'relative col-start-1 row-start-1 mt-6 flex h-5 w-5 items-center md:mt-9 md:h-6 md:w-6 justify-center justify-self-center rounded-full border-2 bg-[var(--timeline-surface)] transition-colors duration-500 md:col-start-2',
           active ? 'border-terra-400' : 'border-line-strong',
         )}
       >
@@ -78,7 +78,7 @@ export function TimelineItem({ index, children }: TimelineItemProps) {
           'col-start-2 row-start-1 min-w-0',
           onLeft ? 'md:col-start-1 md:pr-10' : 'md:col-start-3 md:pl-10',
         )}
-        initial={reduceMotion ? false : { opacity: 0, x: onLeft ? -24 : 24 }}
+        initial={reduceMotion ? false : { opacity: 0, x: onLeft ? -16 : 16 }}
         animate={active ? { opacity: 1, x: 0 } : false}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >

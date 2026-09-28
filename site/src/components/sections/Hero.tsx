@@ -22,7 +22,7 @@ export function Hero() {
     <section
       id="inicio"
       aria-labelledby="hero-title"
-      className="grain relative isolate flex min-h-svh items-center overflow-hidden bg-night pt-24 pb-20"
+      className="grain relative isolate flex min-h-svh items-center overflow-hidden bg-night pt-20 pb-12 sm:pt-24 sm:pb-20"
     >
       <img
         src="/img/hero-rio.jpg"
@@ -43,7 +43,7 @@ export function Hero() {
         alt=""
         width={720}
         height={353}
-        className="pointer-events-none absolute top-24 right-[-6%] -z-10 w-[46vw] max-w-md opacity-20 sm:right-[4%]"
+        className="pointer-events-none absolute top-20 right-[-8%] -z-10 w-[42vw] max-w-md opacity-15 sm:top-24 sm:right-[4%] sm:opacity-20"
       />
       <img
         src="/img/capim-branco.png"
@@ -56,12 +56,12 @@ export function Hero() {
       <Container className="text-center">
         <motion.p
           {...reveal(0)}
-          className="font-display text-xs font-semibold tracking-[0.32em] text-terra-200 uppercase"
+          className="font-display text-[11px] font-semibold tracking-[0.3em] text-terra-200 uppercase sm:text-xs sm:tracking-[0.32em]"
         >
           {ministry.motto.join(' · ')}
         </motion.p>
 
-        <motion.div {...reveal(0.1)} className="mx-auto mt-8 w-[min(74vw,28rem)]">
+        <motion.div {...reveal(0.1)} className="mx-auto mt-6 w-[min(56vw,14.5rem)] sm:mt-8 sm:w-[min(74vw,28rem)]">
           <img
             src="/img/logo-branca.png"
             alt={`Logo ${ministry.name}`}
@@ -75,21 +75,21 @@ export function Hero() {
         <motion.h1
           id="hero-title"
           {...reveal(0.2)}
-          className="mx-auto mt-8 max-w-3xl font-display text-3xl leading-[1.12] font-light tracking-tight text-paper text-balance sm:text-5xl lg:text-6xl"
+          className="mx-auto mt-6 max-w-3xl font-display text-[clamp(1.875rem,8.4vw,2.375rem)] leading-[1.12] font-light tracking-tight text-paper text-balance sm:mt-8 sm:text-5xl lg:text-6xl"
         >
           {hero.title}
         </motion.h1>
 
         <motion.p
           {...reveal(0.3)}
-          className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-paper/80 text-pretty sm:text-lg"
+          className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paper/80 text-pretty sm:mt-8 sm:text-lg"
         >
           {hero.lead}
         </motion.p>
 
         <motion.div
           {...reveal(0.4)}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          className="mx-auto mt-8 flex max-w-sm flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
         >
           <LinkButton href="#participe" size="lg">
             Participe da missão
@@ -102,7 +102,7 @@ export function Hero() {
 
         <motion.blockquote
           {...reveal(0.55)}
-          className="mx-auto mt-16 max-w-xl border-t border-line pt-8"
+          className="mx-auto mt-10 max-w-xl border-t border-line pt-6 sm:mt-16 sm:pt-8"
         >
           <p className="text-sm leading-relaxed text-sand italic sm:text-base">“{hero.verse.text}”</p>
           <footer className="mt-3 font-display text-xs tracking-[0.24em] text-terra-400 uppercase">

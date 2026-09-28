@@ -13,18 +13,18 @@ export function Footer() {
   return (
     <footer className="grain relative isolate overflow-hidden border-t border-line bg-night">
       <Silhouette name="capim" className="bottom-0 left-0 w-full opacity-[0.08]" />
-      <Container className="py-14">
+      <Container className="py-10 sm:py-14">
         <IdentityTabs />
-        <div className="mt-10 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-10 sm:gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="col-span-2 md:col-span-1">
             <img
               src="/img/logo-branca.png"
               alt={`Logo ${ministry.name}`}
               width={1687}
               height={949}
-              className="h-14 w-auto"
+              className="h-11 w-auto sm:h-14"
             />
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand">
+            <p className="mt-4 max-w-sm sm:mt-5 text-sm leading-relaxed text-sand">
               {ministry.tagline}. Entre povos indígenas, sertanejos e ribeirinhos do Brasil.
             </p>
             <p className="mt-4 font-display text-xs tracking-[0.28em] text-terra-400 uppercase">
@@ -66,7 +66,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 sm:mt-12 text-xs text-paper/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {ministry.name}. {ministry.city}.
           </p>

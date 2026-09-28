@@ -4,6 +4,13 @@ import { Silhouette } from '@/components/ui/Silhouette'
 import { peoples, type PeopleAccent } from '@/content/site'
 import { cn } from '@/lib/cn'
 
+/** Ponto de foco de cada foto no recorte paisagem do celular. */
+const mobileFocus: Record<string, string> = {
+  indigenas: 'object-[50%_28%]',
+  sertanejos: 'object-[50%_45%]',
+  ribeirinhos: 'object-[50%_60%]',
+}
+
 const accentStyles: Record<PeopleAccent, { bar: string; label: string; glow: string }> = {
   mata: { bar: 'bg-mata-400', label: 'text-mata-200', glow: 'from-mata-950' },
   terra: { bar: 'bg-terra-400', label: 'text-terra-200', glow: 'from-terra-900' },
@@ -23,20 +30,23 @@ export function Peoples() {
         />
       </Reveal>
 
-      <ul className="mt-16 grid gap-6 md:grid-cols-3">
+      <ul className="mt-10 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-3">
         {peoples.map((people, index) => {
           const accent = accentStyles[people.accent]
           return (
             <Reveal as="li" key={people.id} delay={0.1 * index}>
               <article className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink">
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[16/9] md:aspect-[4/5]">
                   <img
                     src={people.image}
                     alt={people.imageAlt}
                     width={800}
                     height={1000}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    className={cn(
+                      'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100 md:object-center',
+                      mobileFocus[people.id],
+                    )}
                   />
                   <div
                     className={cn('absolute inset-0 bg-gradient-to-t via-transparent to-transparent', accent.glow)}
@@ -48,19 +58,19 @@ export function Peoples() {
                     width={666}
                     height={375}
                     loading="lazy"
-                    className="absolute bottom-4 left-4 h-14 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:h-16"
+                    className="absolute bottom-3 left-4 h-10 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:bottom-4 sm:h-16"
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col p-7">
-                  <span className={cn('h-0.5 w-10 rounded-full', accent.bar)} aria-hidden="true" />
-                  <h3 className={cn('mt-5 font-display text-xl font-medium tracking-tight', accent.label)}>
+                <div className="flex flex-1 flex-col p-5 sm:p-7">
+                  <span className={cn('hidden h-0.5 w-10 rounded-full sm:block', accent.bar)} aria-hidden="true" />
+                  <h3 className={cn('font-display text-lg font-medium tracking-tight sm:mt-5 sm:text-xl', accent.label)}>
                     {people.name}
                   </h3>
-                  <p className="mt-1 font-display text-xs tracking-[0.18em] text-paper/60 uppercase">
+                  <p className="mt-0.5 font-display text-[11px] tracking-[0.18em] text-paper/60 uppercase sm:mt-1 sm:text-xs">
                     {people.region}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-sand text-pretty sm:text-base">
+                  <p className="mt-2 text-[15px] leading-relaxed text-sand text-pretty sm:mt-3 sm:text-base">
                     {people.description}
                   </p>
                 </div>

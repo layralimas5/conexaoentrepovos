@@ -18,7 +18,7 @@ const channels = [
 export function Contact() {
   return (
     <Section id="contato" labelledBy="contato-title" className="bg-white">
-      <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="grid gap-10 sm:gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="min-w-0">
           <Reveal>
             <SectionHeading
@@ -30,7 +30,7 @@ export function Contact() {
             />
           </Reveal>
 
-          <ul className="mt-10 space-y-3">
+          <ul className="mt-7 space-y-3 sm:mt-10">
             {channels.map(({ label, value, href, Icon, external }, index) => (
               <Reveal as="li" key={label} delay={0.08 * index}>
                 <a
@@ -54,15 +54,15 @@ export function Contact() {
         </div>
 
         <Reveal delay={0.15} className="min-w-0">
-          <div className="grain relative isolate h-full overflow-hidden rounded-[var(--radius-card)] bg-night p-8 sm:p-10">
+          <div className="grain relative isolate h-full overflow-hidden rounded-[var(--radius-card)] bg-night p-6 sm:p-10">
             <Silhouette name="peixes" className="right-0 bottom-6 w-2/3 opacity-15" />
             <p className="font-display text-xs font-semibold tracking-[0.26em] text-terra-400 uppercase">
               Fundamento bíblico
             </p>
-            <ul className="mt-6 space-y-6">
+            <ul className="mt-5 space-y-5 sm:mt-6 sm:space-y-6">
               {verses.map((verse) => (
                 <li key={verse.ref}>
-                  <p className="font-display text-lg leading-snug font-light text-paper sm:text-xl">
+                  <p className="font-display text-base leading-snug font-light text-paper sm:text-xl">
                     “{verse.text}”
                   </p>
                   <p className="mt-1.5 text-xs tracking-[0.2em] text-sand uppercase">{verse.ref}</p>

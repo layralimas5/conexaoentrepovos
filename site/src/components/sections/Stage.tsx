@@ -40,7 +40,7 @@ export function Stage() {
         />
       </Reveal>
 
-      <ol ref={listRef} className="mt-16 md:grid md:grid-cols-3">
+      <ol ref={listRef} className="mt-10 sm:mt-16 md:grid md:grid-cols-3">
         {stage.milestones.map((milestone, index) => {
           const isCurrent = milestone.status === 'current'
           const reached = index <= currentIndex
@@ -51,7 +51,7 @@ export function Stage() {
             <li
               key={milestone.period}
               aria-current={isCurrent ? 'step' : undefined}
-              className="relative pb-12 pl-11 last:pb-0 md:pt-14 md:pr-10 md:pb-0 md:pl-0"
+              className="relative pb-8 pl-10 last:pb-0 sm:pb-12 sm:pl-11 md:pt-14 md:pr-10 md:pb-0 md:pl-0"
             >
               {isLast ? null : (
                 <span
@@ -78,7 +78,7 @@ export function Stage() {
 
               <Reveal delay={0.12 * index}>
                 <div className="flex flex-wrap items-center gap-3">
-                  <p className={cn('font-display text-4xl font-light tracking-tight', periodStyles[milestone.status])}>
+                  <p className={cn('font-display text-3xl font-light tracking-tight sm:text-4xl', periodStyles[milestone.status])}>
                     {milestone.period}
                   </p>
                   {isCurrent ? (
@@ -87,8 +87,8 @@ export function Stage() {
                     </span>
                   ) : null}
                 </div>
-                <h3 className="mt-2 font-display text-lg font-medium text-paper">{milestone.title}</h3>
-                <ul className="mt-4 space-y-2.5">
+                <h3 className="mt-1 font-display text-lg font-medium text-paper sm:mt-2">{milestone.title}</h3>
+                <ul className="mt-3 space-y-2 sm:mt-4 sm:space-y-2.5">
                   {milestone.items.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-sand">
                       <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-mata-400" aria-hidden="true" />
@@ -103,7 +103,7 @@ export function Stage() {
       </ol>
 
       <Reveal delay={0.2}>
-        <div className="mt-16 flex flex-col items-start gap-5 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col items-stretch gap-4 border-t border-line pt-8 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:gap-5 sm:pt-10">
           <p className="font-display text-xl font-light tracking-tight text-paper sm:text-2xl">{stage.callout}</p>
           <LinkButton href="#participe" size="lg">
             Participe da missão

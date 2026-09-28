@@ -37,14 +37,14 @@ export function Header() {
         lifted ? 'border-b border-line bg-night/85 backdrop-blur-md' : 'border-b border-transparent',
       )}
     >
-      <Container className="flex h-20 items-center justify-between gap-4">
+      <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
         <a href="#inicio" className="flex items-center gap-3" aria-label={`${ministry.name}, ir para o início`}>
           <img
             src="/img/logo-branca.png"
             alt=""
             width={1687}
             height={949}
-            className="h-10 w-auto object-contain"
+            className="h-8 w-auto object-contain sm:h-10"
           />
           <span className="hidden text-[11px] leading-snug font-display font-medium tracking-[0.18em] text-sand uppercase sm:block">
             Conexão Entre
@@ -104,7 +104,7 @@ export function Header() {
                     <a
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="block border-b border-line py-4 font-display text-base font-medium text-paper"
+                      className="block border-b border-line py-3.5 font-display text-base font-medium text-paper"
                     >
                       {link.label}
                     </a>

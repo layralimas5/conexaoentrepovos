@@ -14,7 +14,7 @@ const figurePlacement: Partial<Record<SilhouetteName, string>> = {
 export function WhyWeExist() {
   return (
     <Section id="porque" labelledBy="porque-title" className="bg-white">
-      <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-20">
+      <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-20">
         <Reveal>
           <SectionHeading id="porque-title" eyebrow="Por que existe" title={why.title} tone="light" />
         </Reveal>
@@ -24,50 +24,50 @@ export function WhyWeExist() {
       </div>
 
       <Reveal delay={0.1}>
-        <p className="mt-16 font-display text-xs font-semibold tracking-[0.24em] text-night/60 uppercase sm:mt-20">
+        <p className="mt-12 font-display text-xs font-semibold tracking-[0.24em] text-night/60 uppercase sm:mt-20">
           {why.barriersLabel}
         </p>
       </Reveal>
 
-      <ol className="mt-8 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
+      <ol className="mt-6 grid gap-7 md:mt-8 md:grid-cols-3 md:gap-10 lg:gap-14">
         {why.barriers.map((barrier, index) => (
           <Reveal as="li" key={barrier.title} delay={0.1 * index}>
-            <article className="relative isolate flex h-full flex-col">
+            <article className="relative isolate grid grid-cols-[3.25rem_1fr] gap-x-4 md:flex md:h-full md:flex-col">
               <Silhouette
                 name={barrier.figure}
                 tone="terra"
-                className={cn('opacity-[0.08]', figurePlacement[barrier.figure])}
+                className={cn('opacity-0 md:opacity-[0.08]', figurePlacement[barrier.figure])}
               />
-              <span className="font-display text-7xl leading-none font-light tracking-tight text-mata-800 tabular-nums">
+              <span className="row-span-2 font-display text-5xl leading-none font-light tracking-tight text-mata-800 tabular-nums md:text-7xl">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="mt-6 h-0.5 w-12 rounded-full bg-mata-400" aria-hidden="true" />
-              <h3 className="mt-6 font-display text-xl font-medium tracking-tight text-night">{barrier.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft text-pretty sm:text-base">{barrier.text}</p>
+              <span className="mt-6 hidden h-0.5 w-12 rounded-full bg-mata-400 md:block" aria-hidden="true" />
+              <h3 className="font-display text-lg font-medium tracking-tight text-night md:mt-6 md:text-xl">{barrier.title}</h3>
+              <p className="mt-1 text-[15px] leading-relaxed text-ink-soft text-pretty md:mt-2 md:text-base">{barrier.text}</p>
             </article>
           </Reveal>
         ))}
       </ol>
 
       <Reveal delay={0.1}>
-        <figure className="relative isolate mt-16 overflow-hidden sm:mt-20 rounded-[var(--radius-card)] bg-night px-7 py-12 sm:px-12 sm:py-14 lg:px-16">
+        <figure className="relative isolate mt-12 overflow-hidden rounded-[var(--radius-card)] bg-night px-6 py-9 sm:mt-20 sm:px-12 sm:py-14 lg:px-16">
           <Silhouette name="passaros" className="top-5 right-5 w-40 opacity-10 sm:w-56" />
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
+          <div className="grid gap-7 sm:gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
             <div>
               <figcaption className="font-display text-xs font-semibold tracking-[0.24em] text-terra-400 uppercase">
                 {why.stanceLabel}
               </figcaption>
-              <blockquote className="mt-5">
-                <p className="font-display text-2xl leading-snug font-light tracking-tight text-paper text-balance sm:text-3xl">
+              <blockquote className="mt-4 sm:mt-5">
+                <p className="font-display text-[1.375rem] leading-snug font-light tracking-tight text-paper text-balance sm:text-3xl">
                   {why.stance}…
                 </p>
               </blockquote>
             </div>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:gap-y-5">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-5">
               {why.stanceVerbs.map((verb) => (
                 <li key={verb} className="flex items-center gap-3">
                   <span className="h-2 w-2 shrink-0 rounded-full bg-terra-400" aria-hidden="true" />
-                  <span className="font-display text-xl font-medium tracking-tight text-terra-200 capitalize sm:text-2xl">
+                  <span className="font-display text-lg font-medium tracking-tight text-terra-200 capitalize sm:text-2xl">
                     {verb}
                   </span>
                 </li>

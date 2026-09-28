@@ -15,7 +15,7 @@ export function Section({ id, children, className, containerClassName, labelledB
     <section
       id={id}
       aria-labelledby={labelledBy}
-      className={cn('relative isolate overflow-hidden py-24 sm:py-32', className)}
+      className={cn('relative isolate overflow-hidden py-16 sm:py-24 lg:py-32', className)}
     >
       <Container className={containerClassName}>{children}</Container>
     </section>
@@ -50,21 +50,21 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const colors = headingTones[tone]
   return (
-    <header className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center', className)}>
+    <header className={cn('max-w-2xl', align === 'center' && 'sm:mx-auto sm:text-center', className)}>
       <p className={cn('font-display text-xs font-semibold tracking-[0.28em] uppercase', colors.eyebrow)}>
         {eyebrow}
       </p>
       <h2
         id={id}
         className={cn(
-          'mt-5 font-display text-3xl leading-[1.1] font-light tracking-tight text-balance sm:text-4xl lg:text-5xl',
+          'mt-3 font-display text-[clamp(1.75rem,7.4vw,2.125rem)] leading-[1.12] sm:mt-5 font-light tracking-tight text-balance sm:text-4xl lg:text-5xl',
           colors.title,
         )}
       >
         {title}
       </h2>
       {description ? (
-        <p className={cn('mt-6 text-base leading-relaxed text-pretty sm:text-lg', colors.description)}>
+        <p className={cn('mt-4 text-base leading-relaxed text-pretty sm:mt-6 sm:text-lg', colors.description)}>
           {description}
         </p>
       ) : null}

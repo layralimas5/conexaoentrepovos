@@ -23,29 +23,29 @@ export function Method() {
         />
       </Reveal>
 
-      <Timeline surfaceColor="var(--color-night)" className="mt-16">
+      <Timeline surfaceColor="var(--color-night)" className="mt-10 sm:mt-16">
         {methodPhases.map((phase, phaseIndex) => {
           const offset = phaseOffsets[phaseIndex] ?? 0
           return (
             <TimelineItem key={phase.id} index={phaseIndex}>
-              <article className="rounded-[var(--radius-card)] border border-line bg-ink p-7 sm:p-8">
+              <article className="rounded-[var(--radius-card)] border border-line bg-ink p-5 sm:p-8">
                 <header>
                   <p className="font-display text-xs tracking-[0.28em] text-paper/55 uppercase">
                     Fase {phaseIndex + 1}
                   </p>
-                  <h3 className="mt-3 font-display text-3xl font-light tracking-tight text-paper">{phase.title}</h3>
-                  <p className="mt-2 text-sm text-terra-200">{phase.summary}</p>
+                  <h3 className="mt-1.5 font-display text-[1.625rem] leading-tight font-light tracking-tight text-paper sm:mt-3 sm:text-3xl">{phase.title}</h3>
+                  <p className="mt-1 text-sm text-terra-200 sm:mt-2">{phase.summary}</p>
                 </header>
 
-                <ol start={offset + 1} className="mt-7 space-y-5 border-t border-line pt-6">
+                <ol start={offset + 1} className="mt-5 space-y-3.5 border-t border-line pt-4 sm:mt-7 sm:space-y-5 sm:pt-6">
                   {phase.steps.map((step, stepIndex) => (
-                    <li key={step.name} className="flex gap-4">
+                    <li key={step.name} className="flex gap-3 sm:gap-4">
                       <span className="pt-1 font-display text-xs tracking-[0.2em] text-terra-400 tabular-nums">
                         {String(offset + stepIndex + 1).padStart(2, '0')}
                       </span>
                       <div>
-                        <h4 className="font-display text-lg font-medium tracking-tight text-paper">{step.name}</h4>
-                        <p className="mt-1 text-sm leading-relaxed text-sand text-pretty">{step.text}</p>
+                        <h4 className="font-display text-base font-medium tracking-tight text-paper sm:text-lg">{step.name}</h4>
+                        <p className="mt-0.5 text-sm leading-relaxed text-sand text-pretty sm:mt-1">{step.text}</p>
                       </div>
                     </li>
                   ))}
@@ -57,8 +57,8 @@ export function Method() {
       </Timeline>
 
       <Reveal delay={0.2}>
-        <blockquote className="mx-auto mt-20 max-w-3xl text-center">
-          <p className="font-display text-xl leading-snug font-light text-paper text-balance sm:text-2xl lg:text-3xl">
+        <blockquote className="mx-auto mt-12 max-w-3xl text-center sm:mt-20">
+          <p className="font-display text-lg leading-snug font-light text-paper text-balance sm:text-2xl lg:text-3xl">
             “{quote.text}”
           </p>
           <footer className="mt-5 font-display text-xs tracking-[0.26em] text-terra-400 uppercase">
