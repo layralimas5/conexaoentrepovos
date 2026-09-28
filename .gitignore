@@ -3,3 +3,9 @@ dist
 .env
 .env.*
 !.env.example
+
+# Material interno do cliente: fica so no computador, fora do repo publico
+material-kamily/
+briefing.md
+CLAUDE.md
+referencias/
