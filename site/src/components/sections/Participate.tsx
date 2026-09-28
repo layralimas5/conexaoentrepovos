@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { FishTexture } from '@/components/ui/FishTexture'
 import { ActionButton, LinkButton } from '@/components/ui/Button'
 import { ArrowRightIcon, CheckIcon, CopyIcon, WhatsAppIcon } from '@/components/ui/icons'
 import { ministry, participationGroups, type Participation } from '@/content/site'
@@ -45,7 +46,9 @@ function ParticipationCta({ item }: { item: Participation }) {
 
 export function Participate() {
   return (
-    <Section id="participe" labelledBy="participe-title" className="grain bg-mata-950">
+    <Section id="participe" labelledBy="participe-title" className="grain isolate overflow-hidden bg-mata-950">
+      <FishTexture className="top-16 -right-10 w-64 opacity-15 sm:w-80" />
+      <FishTexture className="bottom-10 -left-12 w-72 -scale-x-100 opacity-10 sm:w-96" />
       <Reveal>
         <SectionHeading
           id="participe-title"

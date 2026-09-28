@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
+import { FishTexture } from '@/components/ui/FishTexture'
 import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
 import { ministry, verses } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
@@ -30,7 +31,7 @@ const channels = [
 
 export function Contact() {
   return (
-    <Section id="contato" labelledBy="contato-title" className="bg-night">
+    <Section id="contato" labelledBy="contato-title" className="bg-white">
       <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="min-w-0">
           <Reveal>
@@ -39,6 +40,7 @@ export function Contact() {
               eyebrow="Contato"
               title="Vamos conversar sobre a missão"
               description="Igrejas, mantenedores, vocacionados e voluntários: o primeiro passo é uma conversa. Escolhe o canal que preferir."
+              tone="light"
             />
           </Reveal>
 
@@ -48,16 +50,16 @@ export function Contact() {
                 <a
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] border border-line bg-ink p-5 transition-colors hover:border-terra-400/60"
+                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] border border-night/10 bg-paper p-5 transition-colors hover:border-terra-700"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line text-terra-400 transition-colors group-hover:border-terra-400">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-night/15 text-terra-900 transition-colors group-hover:border-terra-700">
                     <Icon className="h-5 w-5" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block font-display text-[11px] font-semibold tracking-[0.22em] text-paper/55 uppercase">
+                    <span className="block font-display text-[11px] font-semibold tracking-[0.22em] text-night/60 uppercase">
                       {label}
                     </span>
-                    <span className="block truncate text-base text-paper">{value}</span>
+                    <span className="block truncate text-base text-night">{value}</span>
                   </span>
                 </a>
               </Reveal>
@@ -66,15 +68,8 @@ export function Contact() {
         </div>
 
         <Reveal delay={0.15} className="min-w-0">
-          <div className="relative h-full overflow-hidden rounded-[var(--radius-card)] border border-line bg-ink p-8 sm:p-10">
-            <img
-              src="/img/peixes-branco.png"
-              alt=""
-              width={480}
-              height={104}
-              loading="lazy"
-              className="pointer-events-none absolute right-0 bottom-6 w-2/3 opacity-15"
-            />
+          <div className="grain relative isolate h-full overflow-hidden rounded-[var(--radius-card)] bg-mata-950 p-8 sm:p-10">
+            <FishTexture className="right-0 bottom-6 w-2/3 opacity-15" />
             <p className="font-display text-xs font-semibold tracking-[0.26em] text-terra-400 uppercase">
               Fundamento bíblico
             </p>
