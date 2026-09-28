@@ -28,7 +28,15 @@ type SectionHeadingProps = {
   title: ReactNode
   description?: string | undefined
   align?: 'left' | 'center' | undefined
+  tone?: SectionTone | undefined
   className?: string | undefined
+}
+
+export type SectionTone = 'dark' | 'light'
+
+const headingTones: Record<SectionTone, { eyebrow: string; title: string; description: string }> = {
+  dark: { eyebrow: 'text-terra-400', title: 'text-paper', description: 'text-sand' },
+  light: { eyebrow: 'text-terra-900', title: 'text-night', description: 'text-ink-soft' },
 }
 
 export function SectionHeading({
@@ -37,21 +45,26 @@ export function SectionHeading({
   title,
   description,
   align = 'left',
+  tone = 'dark',
   className,
 }: SectionHeadingProps) {
+  const colors = headingTones[tone]
   return (
     <header className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center', className)}>
-      <p className="font-display text-xs font-semibold tracking-[0.28em] text-terra-400 uppercase">
+      <p className={cn('font-display text-xs font-semibold tracking-[0.28em] uppercase', colors.eyebrow)}>
         {eyebrow}
       </p>
       <h2
         id={id}
-        className="mt-5 font-display text-3xl leading-[1.1] font-light tracking-tight text-paper text-balance sm:text-4xl lg:text-5xl"
+        className={cn(
+          'mt-5 font-display text-3xl leading-[1.1] font-light tracking-tight text-balance sm:text-4xl lg:text-5xl',
+          colors.title,
+        )}
       >
         {title}
       </h2>
       {description ? (
-        <p className="mt-6 text-base leading-relaxed text-sand text-pretty sm:text-lg">
+        <p className={cn('mt-6 text-base leading-relaxed text-pretty sm:text-lg', colors.description)}>
           {description}
         </p>
       ) : null}

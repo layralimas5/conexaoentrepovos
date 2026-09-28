@@ -4,7 +4,7 @@ import { founder } from '@/content/site'
 
 export function Founder() {
   return (
-    <Section id="fundadora" labelledBy="fundadora-title" className="bg-ink">
+    <Section id="fundadora" labelledBy="fundadora-title" className="bg-white">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
           <figure className="relative">
@@ -36,9 +36,10 @@ export function Founder() {
               id="fundadora-title"
               eyebrow="Quem está à frente"
               title="Vocacionada para treinar, plantar e transformar"
+              tone="light"
             />
           </Reveal>
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-sand text-pretty sm:text-lg">
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:text-lg">
             {founder.bio.map((paragraph, index) => (
               <Reveal key={paragraph.slice(0, 24)} delay={0.08 * (index + 1)}>
                 <p>{paragraph}</p>
@@ -50,7 +51,7 @@ export function Founder() {
               {founder.credentials.map((credential) => (
                 <li
                   key={credential}
-                  className="rounded-full border border-line px-4 py-1.5 font-display text-xs font-medium tracking-wide text-paper/80"
+                  className="rounded-full border border-night/15 px-4 py-1.5 font-display text-xs font-medium tracking-wide text-ink-soft"
                 >
                   {credential}
                 </li>
