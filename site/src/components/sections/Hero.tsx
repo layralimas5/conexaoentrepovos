@@ -61,7 +61,7 @@ export function Hero() {
           {ministry.motto.join(' · ')}
         </motion.p>
 
-        <motion.div {...reveal(0.1)} className="mx-auto mt-8 w-[min(64vw,22rem)]">
+        <motion.div {...reveal(0.1)} className="mx-auto mt-8 w-[min(74vw,28rem)]">
           <img
             src="/img/logo-branca.png"
             alt={`Logo ${ministry.name}`}

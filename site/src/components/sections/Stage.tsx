@@ -1,21 +1,33 @@
+import { useRef, type CSSProperties } from 'react'
+import { useInView, useReducedMotion } from 'framer-motion'
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
-import { Silhouette } from '@/components/ui/Silhouette'
 import { LinkButton } from '@/components/ui/Button'
+import { Silhouette } from '@/components/ui/Silhouette'
 import { stage, type MilestoneStatus } from '@/content/site'
 import { cn } from '@/lib/cn'
 
-const statusStyles: Record<MilestoneStatus, { dot: string; card: string; period: string }> = {
-  current: {
-    dot: 'bg-terra-400 ring-4 ring-terra-400/25',
-    card: 'border-terra-400/60 bg-terra-400/10',
-    period: 'text-terra-400',
-  },
-  next: { dot: 'bg-paper/70', card: 'border-line bg-night/40', period: 'text-paper' },
-  future: { dot: 'border border-paper/50 bg-transparent', card: 'border-line bg-night/40', period: 'text-paper/70' },
+const currentIndex = stage.milestones.findIndex((milestone) => milestone.status === 'current')
+
+/** Quanto do trecho até o próximo marco já foi percorrido: completo antes do atual, metade no atual. */
+function segmentFill(index: number) {
+  if (index < currentIndex) return 1
+  if (index === currentIndex) return 0.5
+  return 0
+}
+
+const periodStyles: Record<MilestoneStatus, string> = {
+  current: 'text-terra-400',
+  next: 'text-paper',
+  future: 'text-paper/60',
 }
 
 export function Stage() {
+  const listRef = useRef<HTMLOListElement>(null)
+  const reduceMotion = useReducedMotion()
+  const inView = useInView(listRef, { once: true, amount: 0.4 })
+  const drawn = reduceMotion || inView
+
   return (
     <Section id="agora" labelledBy="agora-title" className="bg-ink">
       <Silhouette name="passaros" className="top-12 -right-10 w-56 -scale-x-100 opacity-10 sm:w-80" />
@@ -28,24 +40,45 @@ export function Stage() {
         />
       </Reveal>
 
-      <ol className="mt-14 grid gap-5 md:grid-cols-3">
+      <ol ref={listRef} className="mt-16 md:grid md:grid-cols-3">
         {stage.milestones.map((milestone, index) => {
-          const styles = statusStyles[milestone.status]
           const isCurrent = milestone.status === 'current'
+          const reached = index <= currentIndex
           const isLast = index === stage.milestones.length - 1
-          return (
-            <Reveal as="li" key={milestone.period} delay={0.1 * index} className="flex flex-col">
-              <div className="flex h-6 items-center gap-3" aria-hidden="true">
-                <span className={cn('h-3 w-3 shrink-0 rounded-full', styles.dot)} />
-                {isLast ? null : <span className="hidden h-px flex-1 bg-line-strong md:block" />}
-              </div>
+          const fill = drawn ? segmentFill(index) : 0
 
-              <article
-                aria-current={isCurrent ? 'step' : undefined}
-                className={cn('mt-4 flex-1 rounded-[var(--radius-card)] border p-7', styles.card)}
+          return (
+            <li
+              key={milestone.period}
+              aria-current={isCurrent ? 'step' : undefined}
+              className="relative pb-12 pl-11 last:pb-0 md:pt-14 md:pr-10 md:pb-0 md:pl-0"
+            >
+              {isLast ? null : (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-3 -bottom-3 left-3 w-px bg-line-strong md:top-3 md:-right-3 md:bottom-auto md:left-3 md:h-px md:w-auto"
+                >
+                  <span
+                    className="block h-full w-full origin-top scale-y-[var(--fill)] bg-terra-400 transition-transform duration-1000 ease-out md:origin-left md:scale-x-[var(--fill)] md:scale-y-100 motion-reduce:transition-none"
+                    style={{ '--fill': fill, transitionDelay: `${index * 350}ms` } as CSSProperties}
+                  />
+                </span>
+              )}
+
+              <span
+                aria-hidden="true"
+                className={cn(
+                  'absolute top-0 left-0 flex h-6 w-6 items-center justify-center rounded-full border-2 bg-ink',
+                  reached ? 'border-terra-400' : 'border-line-strong',
+                  isCurrent && 'ring-4 ring-terra-400/20',
+                )}
               >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className={cn('font-display text-4xl font-light tracking-tight', styles.period)}>
+                {reached ? <span className="h-2 w-2 rounded-full bg-terra-400" /> : null}
+              </span>
+
+              <Reveal delay={0.12 * index}>
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className={cn('font-display text-4xl font-light tracking-tight', periodStyles[milestone.status])}>
                     {milestone.period}
                   </p>
                   {isCurrent ? (
@@ -54,23 +87,23 @@ export function Stage() {
                     </span>
                   ) : null}
                 </div>
-                <h3 className="mt-3 font-display text-lg font-medium text-paper">{milestone.title}</h3>
-                <ul className="mt-5 space-y-2.5">
+                <h3 className="mt-2 font-display text-lg font-medium text-paper">{milestone.title}</h3>
+                <ul className="mt-4 space-y-2.5">
                   {milestone.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-sand">
+                    <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-sand">
                       <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-mata-400" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
-              </article>
-            </Reveal>
+              </Reveal>
+            </li>
           )
         })}
       </ol>
 
       <Reveal delay={0.2}>
-        <div className="mt-12 flex flex-col items-start gap-5 rounded-[var(--radius-card)] border border-line p-7 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div className="mt-16 flex flex-col items-start gap-5 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-xl font-light tracking-tight text-paper sm:text-2xl">{stage.callout}</p>
           <LinkButton href="#participe" size="lg">
             Participe da missão

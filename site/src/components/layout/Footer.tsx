@@ -1,6 +1,6 @@
 import { Container } from '@/components/ui/Container'
 import { Silhouette } from '@/components/ui/Silhouette'
-import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
+import { WhatsAppIcon } from '@/components/ui/icons'
 import { identity, ministry, navLinks } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
 
@@ -36,7 +36,6 @@ export function Footer() {
 
   return (
     <footer className="grain relative isolate overflow-hidden border-t border-line bg-night">
-      <Silhouette name="peixes" className="bottom-20 -right-16 w-72 opacity-10 sm:w-96" />
       <Silhouette name="capim" className="bottom-0 left-0 w-full opacity-[0.08]" />
       <Container className="py-14">
         <IdentityBand />
@@ -85,24 +84,6 @@ export function Footer() {
                   className="inline-flex items-center gap-2 text-sm text-sand transition-colors hover:text-paper"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  href={ministry.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-sand transition-colors hover:text-paper"
-                >
-                  <InstagramIcon className="h-4 w-4" /> {ministry.instagramHandle}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${ministry.email}`}
-                  className="inline-flex items-center gap-2 text-sm text-sand transition-colors hover:text-paper"
-                >
-                  <MailIcon className="h-4 w-4" /> {ministry.email}
                 </a>
               </li>
             </ul>

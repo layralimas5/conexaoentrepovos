@@ -1,8 +1,8 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { Silhouette } from '@/components/ui/Silhouette'
-import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
-import { ministry, verses } from '@/content/site'
+import { WhatsAppIcon } from '@/components/ui/icons'
+import { verses } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
 
 const channels = [
@@ -12,20 +12,6 @@ const channels = [
     href: whatsappLink(),
     Icon: WhatsAppIcon,
     external: true,
-  },
-  {
-    label: 'Instagram',
-    value: ministry.instagramHandle,
-    href: ministry.instagram,
-    Icon: InstagramIcon,
-    external: true,
-  },
-  {
-    label: 'E-mail',
-    value: ministry.email,
-    href: `mailto:${ministry.email}`,
-    Icon: MailIcon,
-    external: false,
   },
 ] as const
 
@@ -39,7 +25,7 @@ export function Contact() {
               id="contato-title"
               eyebrow="Contato"
               title="Vamos conversar sobre a missão"
-              description="Igrejas, mantenedores, vocacionados e voluntários: o primeiro passo é uma conversa. Escolhe o canal que preferir."
+              description="Igrejas, mantenedores, vocacionados e voluntários: o primeiro passo é uma conversa, direto com a Kamilly pelo WhatsApp."
               tone="light"
             />
           </Reveal>

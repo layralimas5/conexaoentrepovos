@@ -5,7 +5,7 @@ type Variant = 'primary' | 'outline' | 'ghost'
 type Size = 'md' | 'lg'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold tracking-wide whitespace-nowrap transition-[background-color,color,border-color,transform] duration-200 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60'
+  'inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold tracking-wide whitespace-nowrap transition-[background-color,color,border-color,transform] duration-200 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 motion-safe:hover:animate-pulse-soft motion-safe:focus-visible:animate-pulse-soft'
 
 const variants: Record<Variant, string> = {
   primary: 'bg-terra-400 text-night hover:bg-terra-200',

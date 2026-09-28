@@ -11,13 +11,8 @@ export const ministry = {
   founder: 'Kamilly Guimarães Patrocínio',
   city: 'Vitória, ES',
   foundedYear: 2027,
-  /** PENDENTE: confirmar com a Kamilly. */
-  instagram: 'https://www.instagram.com/',
-  instagramHandle: '@conexaoentreospovos',
   /** PENDENTE: número com DDI, só dígitos. */
   whatsapp: '5527000000000',
-  /** PENDENTE */
-  email: 'contato@conexaoentreospovos.com.br',
   /** PENDENTE: chave Pix e titular. */
   pix: { key: 'chave-pix-pendente', holder: 'Kamilly Guimarães Patrocínio' },
   url: 'https://conexaoentreospovos.com.br',
