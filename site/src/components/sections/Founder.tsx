@@ -39,6 +39,13 @@ export function Founder() {
               tone="light"
             />
           </Reveal>
+          <Reveal delay={0.05}>
+            <blockquote className="mt-8 border-l-2 border-terra-700 pl-5">
+              <p className="font-display text-xl leading-snug font-light tracking-tight text-night text-balance sm:text-2xl">
+                “{founder.calling}”
+              </p>
+            </blockquote>
+          </Reveal>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-ink-soft text-pretty sm:text-lg">
             {founder.bio.map((paragraph, index) => (
               <Reveal key={paragraph.slice(0, 24)} delay={0.08 * (index + 1)}>

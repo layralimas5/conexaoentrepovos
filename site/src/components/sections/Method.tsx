@@ -1,6 +1,10 @@
 import { Section, SectionHeading } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
-import { method, quote } from '@/content/site'
+import { methodPhases, quote } from '@/content/site'
+
+const phaseOffsets = methodPhases.map((_, index) =>
+  methodPhases.slice(0, index).reduce((total, phase) => total + phase.steps.length, 0),
+)
 
 export function Method() {
   return (
@@ -8,48 +12,46 @@ export function Method() {
       <Reveal>
         <SectionHeading
           id="caminho-title"
-          eyebrow="Metodologia missionária"
+          eyebrow="Como chegamos"
           title="O caminho começa por ouvir, não por falar"
-          description="Nove passos que se repetem em cada campo. O primeiro movimento é sempre conhecer, aproximar-se e aprender. A pregação vem depois do relacionamento."
+          description="As frentes dizem o que o CEP faz. Estes nove passos dizem como ele chega a cada comunidade, em três fases. A pregação vem depois do relacionamento."
         />
       </Reveal>
 
-      <ol className="mt-14 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {method.steps.map((step, index) => (
-          <Reveal as="li" key={step.name} delay={0.05 * index}>
-            <div className="flex gap-4">
-              <span className="font-display text-sm tracking-[0.2em] text-terra-400 tabular-nums">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="font-display text-lg font-medium tracking-tight text-paper">{step.name}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-sand text-pretty">{step.text}</p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </ol>
+      <ol className="mt-14 grid gap-5 lg:grid-cols-3">
+        {methodPhases.map((phase, phaseIndex) => {
+          const offset = phaseOffsets[phaseIndex] ?? 0
+          return (
+            <Reveal as="li" key={phase.id} delay={0.1 * phaseIndex}>
+              <article className="h-full rounded-[var(--radius-card)] border border-line bg-ink p-7 sm:p-8">
+                <header>
+                  <p className="font-display text-xs tracking-[0.28em] text-paper/55 uppercase">
+                    Fase {phaseIndex + 1}
+                  </p>
+                  <h3 className="mt-3 font-display text-3xl font-light tracking-tight text-paper">{phase.title}</h3>
+                  <p className="mt-2 text-sm text-terra-200">{phase.summary}</p>
+                </header>
 
-      <div className="mt-20 grid gap-6 md:grid-cols-2">
-        {method.plan.map((phase, index) => (
-          <Reveal key={phase.period} delay={0.1 * index}>
-            <article className="h-full rounded-[var(--radius-card)] border border-line bg-ink p-8">
-              <p className="font-display text-4xl font-light tracking-tight text-terra-400 sm:text-5xl">
-                {phase.period}
-              </p>
-              <h3 className="mt-3 font-display text-lg font-medium text-paper">{phase.title}</h3>
-              <ul className="mt-5 space-y-2.5">
-                {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-sand">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-mata-400" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+                <ol start={offset + 1} className="mt-7 space-y-5 border-l border-line-strong pl-5">
+                  {phase.steps.map((step, stepIndex) => (
+                    <li key={step.name} className="relative">
+                      <span
+                        className="absolute top-2 -left-[23.5px] h-2 w-2 rounded-full bg-terra-400"
+                        aria-hidden="true"
+                      />
+                      <p className="font-display text-[11px] tracking-[0.22em] text-terra-400 tabular-nums">
+                        {String(offset + stepIndex + 1).padStart(2, '0')}
+                      </p>
+                      <h4 className="mt-0.5 font-display text-lg font-medium tracking-tight text-paper">{step.name}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-sand text-pretty">{step.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            </Reveal>
+          )
+        })}
+      </ol>
 
       <Reveal delay={0.2}>
         <blockquote className="mx-auto mt-20 max-w-3xl text-center">

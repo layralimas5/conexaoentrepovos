@@ -1,9 +1,34 @@
 import { Container } from '@/components/ui/Container'
 import { InstagramIcon, MailIcon, WhatsAppIcon } from '@/components/ui/icons'
-import { ministry, navLinks } from '@/content/site'
+import { identity, ministry, navLinks } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
 
 const developerUrl = 'https://limadigitalstudio.com.br'
+
+function IdentityBand() {
+  return (
+    <section aria-label="Identidade do ministério" className="grid gap-8 border-b border-line pb-12 sm:grid-cols-2 lg:grid-cols-4">
+      {identity.statements.map((statement) => (
+        <div key={statement.title}>
+          <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-terra-400 uppercase">
+            {statement.title}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-sand text-pretty">{statement.text}</p>
+        </div>
+      ))}
+      <div>
+        <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-terra-400 uppercase">Valores</h2>
+        <ul className="mt-3 space-y-2">
+          {identity.values.map((value) => (
+            <li key={value} className="text-sm leading-relaxed text-sand">
+              {value}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -11,7 +36,8 @@ export function Footer() {
   return (
     <footer className="border-t border-line bg-mata-950">
       <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <IdentityBand />
+        <div className="mt-12 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <img
               src="/img/logo-branca.png"

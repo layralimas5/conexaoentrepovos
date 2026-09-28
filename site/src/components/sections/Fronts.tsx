@@ -8,7 +8,7 @@ export function Fronts() {
       <Reveal>
         <SectionHeading
           id="frentes-title"
-          eyebrow="Frentes de atuação"
+          eyebrow="O que fazemos"
           title="Treinar. Plantar. Servir."
           description="Três frentes que caminham juntas. Proclamação e serviço não se separam: uma sem a outra não é a missão que o CEP entende como bíblica."
           align="center"

@@ -58,10 +58,10 @@ export function Hero() {
           {...reveal(0)}
           className="font-display text-xs font-semibold tracking-[0.32em] text-terra-200 uppercase"
         >
-          {ministry.tagline}
+          {ministry.motto.join(' · ')}
         </motion.p>
 
-        <motion.div {...reveal(0.1)} className="mx-auto mt-8 w-[min(78vw,30rem)]">
+        <motion.div {...reveal(0.1)} className="mx-auto mt-8 w-[min(64vw,22rem)]">
           <img
             src="/img/logo-branca.png"
             alt={`Logo ${ministry.name}`}
@@ -75,18 +75,9 @@ export function Hero() {
         <motion.h1
           id="hero-title"
           {...reveal(0.2)}
-          className="mt-6 flex flex-col items-center gap-1 font-display text-3xl font-light tracking-[0.18em] text-paper uppercase sm:flex-row sm:justify-center sm:gap-0 sm:text-4xl lg:text-5xl"
+          className="mx-auto mt-8 max-w-3xl font-display text-3xl leading-[1.12] font-light tracking-tight text-paper text-balance sm:text-5xl lg:text-6xl"
         >
-          {ministry.motto.map((word, index) => (
-            <span key={word} className="flex items-center">
-              {index > 0 ? (
-                <span className="hidden text-terra-400 sm:mx-5 sm:inline" aria-hidden="true">
-                  ·
-                </span>
-              ) : null}
-              {word}
-            </span>
-          ))}
+          {hero.title}
         </motion.h1>
 
         <motion.p
@@ -103,7 +94,7 @@ export function Hero() {
           <LinkButton href="#participe" size="lg">
             Participe da missão
           </LinkButton>
-          <LinkButton href="#sobre" size="lg" variant="outline">
+          <LinkButton href="#porque" size="lg" variant="outline">
             Conhecer o CEP
             <ArrowDownIcon className="h-4 w-4" />
           </LinkButton>

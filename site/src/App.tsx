@@ -1,11 +1,12 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
-import { About } from '@/components/sections/About'
-import { Fronts } from '@/components/sections/Fronts'
+import { WhyWeExist } from '@/components/sections/WhyWeExist'
 import { Peoples } from '@/components/sections/Peoples'
-import { Founder } from '@/components/sections/Founder'
+import { Fronts } from '@/components/sections/Fronts'
 import { Method } from '@/components/sections/Method'
+import { Stage } from '@/components/sections/Stage'
+import { Founder } from '@/components/sections/Founder'
 import { Participate } from '@/components/sections/Participate'
 import { Contact } from '@/components/sections/Contact'
 
@@ -23,11 +24,12 @@ export default function App() {
 
       <main id="conteudo">
         <Hero />
-        <About />
-        <Fronts />
+        <WhyWeExist />
         <Peoples />
-        <Founder />
+        <Fronts />
         <Method />
+        <Stage />
+        <Founder />
         <Participate />
         <Contact />
       </main>

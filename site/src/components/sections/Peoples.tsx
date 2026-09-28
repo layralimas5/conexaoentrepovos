@@ -15,9 +15,9 @@ export function Peoples() {
       <Reveal>
         <SectionHeading
           id="povos-title"
-          eyebrow="Povos e campos prioritários"
-          title="Cada povo tem identidade, história e forma própria de viver"
-          description="A definição desses campos não pressupõe homogeneidade. Cada aproximação parte de escuta, pesquisa, relacionamento e discernimento, evitando generalizações e imposições culturais."
+          eyebrow="Para quem"
+          title="Indígenas, sertanejos e ribeirinhos"
+          description="Três campos prioritários, e nenhum deles é homogêneo. Cada povo tem identidade, história e forma própria de viver, por isso cada aproximação parte de escuta, pesquisa e relacionamento."
         />
       </Reveal>
 
@@ -55,6 +55,9 @@ export function Peoples() {
                   <h3 className={cn('mt-5 font-display text-xl font-medium tracking-tight', accent.label)}>
                     {people.name}
                   </h3>
+                  <p className="mt-1 font-display text-xs tracking-[0.18em] text-paper/60 uppercase">
+                    {people.region}
+                  </p>
                   <p className="mt-3 text-sm leading-relaxed text-sand text-pretty sm:text-base">
                     {people.description}
                   </p>
