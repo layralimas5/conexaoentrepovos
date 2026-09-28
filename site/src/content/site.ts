@@ -45,19 +45,23 @@ export const why = {
     {
       title: 'Isolamento geográfico',
       text: 'Comunidades distantes dos centros urbanos e das igrejas estabelecidas.',
+      figure: 'peixes',
     },
     {
       title: 'Dificuldade de acesso',
       text: 'Chegar e permanecer exige tempo, estrutura e compromisso de longo prazo.',
+      figure: 'sertanejo',
     },
     {
       title: 'Culturas distintas',
       text: 'Modos de viver diferentes da realidade urbana pedem uma forma própria de chegar.',
+      figure: 'indigena',
     },
   ],
   stanceLabel: 'Como o CEP enxerga esses povos',
   stance:
-    'Não apenas como destinatários de uma mensagem, mas como pessoas e comunidades que precisam ser conhecidas, ouvidas, respeitadas e servidas.',
+    'Não apenas como destinatários de uma mensagem, mas como pessoas e comunidades que precisam ser',
+  stanceVerbs: ['conhecidas', 'ouvidas', 'respeitadas', 'servidas'],
 } as const
 
 export const identity = {
