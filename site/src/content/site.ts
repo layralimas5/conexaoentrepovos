@@ -163,6 +163,8 @@ export const peoples: readonly People[] = [
 export const founder = {
   name: 'Kamilly Guimarães Patrocínio',
   role: 'Idealizadora e fundadora',
+  photo: '/img/foto-kamilly.jpg',
+  photoAlt: 'Kamilly sorrindo diante de um mural com o mapa-múndi e a frase “Eis-me aqui”',
   calling:
     'Sou vocacionada para treinar pessoas, plantar igrejas e promover transformação entre os povos através da Palavra de Deus.',
   bio: [

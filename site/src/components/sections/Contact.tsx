@@ -36,16 +36,16 @@ export function Contact() {
                 <a
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] border border-night/10 bg-paper p-5 transition-colors hover:border-terra-700"
+                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] bg-mata-800 p-5 text-white transition-colors hover:bg-mata-950"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-night/15 text-terra-900 transition-colors group-hover:border-terra-700">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 transition-colors group-hover:border-white/60">
                     <Icon className="h-5 w-5" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block font-display text-[11px] font-semibold tracking-[0.22em] text-night/60 uppercase">
+                    <span className="block font-display text-[11px] font-semibold tracking-[0.22em] text-white/75 uppercase">
                       {label}
                     </span>
-                    <span className="block truncate text-base text-night">{value}</span>
+                    <span className="block truncate text-base font-medium">{value}</span>
                   </span>
                 </a>
               </Reveal>

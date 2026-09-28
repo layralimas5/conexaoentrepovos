@@ -10,17 +10,20 @@ export function Founder() {
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
           <figure className="relative">
-            {/* PENDENTE: trocar pela foto da Kamilly (retrato vertical, 4:5). */}
-            <div className="brand-gradient flex aspect-[4/5] w-full items-end overflow-hidden rounded-[var(--radius-card)] p-6">
+            <div className="relative isolate flex aspect-[960/1067] w-full items-end overflow-hidden rounded-[var(--radius-card)] bg-ink p-6">
               <img
-                src="/img/indigena-arco-branco.png"
-                alt=""
-                width={222}
-                height={222}
+                src={founder.photo}
+                alt={founder.photoAlt}
+                width={960}
+                height={1067}
                 loading="lazy"
-                className="pointer-events-none absolute top-8 right-8 w-24 opacity-30"
+                className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
               />
-              <figcaption className="relative">
+              <div
+                className="absolute inset-0 -z-10 bg-gradient-to-t from-night/90 via-night/25 to-transparent"
+                aria-hidden="true"
+              />
+              <figcaption>
                 <p className="font-display text-xs font-semibold tracking-[0.26em] text-paper/80 uppercase">
                   {founder.role}
                 </p>

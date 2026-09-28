@@ -1,35 +1,11 @@
 import { Container } from '@/components/ui/Container'
 import { Silhouette } from '@/components/ui/Silhouette'
 import { WhatsAppIcon } from '@/components/ui/icons'
-import { identity, ministry, navLinks } from '@/content/site'
+import { ministry, navLinks } from '@/content/site'
 import { whatsappLink } from '@/lib/whatsapp'
+import { IdentityTabs } from '@/components/layout/IdentityTabs'
 
 const developerUrl = 'https://limadigitalstudio.com.br'
-
-function IdentityBand() {
-  return (
-    <section aria-label="Identidade do ministério" className="grid gap-8 border-b border-line pb-12 sm:grid-cols-2 lg:grid-cols-4">
-      {identity.statements.map((statement) => (
-        <div key={statement.title}>
-          <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-terra-400 uppercase">
-            {statement.title}
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-sand text-pretty">{statement.text}</p>
-        </div>
-      ))}
-      <div>
-        <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-terra-400 uppercase">Valores</h2>
-        <ul className="mt-3 space-y-2">
-          {identity.values.map((value) => (
-            <li key={value} className="text-sm leading-relaxed text-sand">
-              {value}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )
-}
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -38,8 +14,8 @@ export function Footer() {
     <footer className="grain relative isolate overflow-hidden border-t border-line bg-night">
       <Silhouette name="capim" className="bottom-0 left-0 w-full opacity-[0.08]" />
       <Container className="py-14">
-        <IdentityBand />
-        <div className="mt-12 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <IdentityTabs />
+        <div className="mt-10 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <img
               src="/img/logo-branca.png"
