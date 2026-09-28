@@ -36,7 +36,7 @@ export function Contact() {
                 <a
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] bg-mata-800 p-5 text-white transition-colors hover:bg-mata-950"
+                  className="group flex min-w-0 items-center gap-4 rounded-[var(--radius-card)] bg-night p-5 text-white transition-colors hover:bg-ink"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 transition-colors group-hover:border-white/60">
                     <Icon className="h-5 w-5" />
