@@ -4,11 +4,11 @@ import { Silhouette, type SilhouetteName } from '@/components/ui/Silhouette'
 import { why } from '@/content/site'
 import { cn } from '@/lib/cn'
 
-/** Cada figura tem proporção própria; aqui ela é encaixada no canto inferior do card. */
+/** Cada figura tem proporção própria; aqui ela fica atrás do número, no alto à direita. */
 const figurePlacement: Partial<Record<SilhouetteName, string>> = {
-  peixes: '-right-6 bottom-8 w-60',
-  sertanejo: '-right-6 -bottom-2 w-52',
-  indigena: 'right-5 bottom-4 w-32',
+  peixes: 'right-0 top-4 w-52',
+  sertanejo: 'right-0 -top-4 w-44',
+  indigena: 'right-6 -top-4 w-24',
 }
 
 export function WhyWeExist() {
@@ -29,22 +29,19 @@ export function WhyWeExist() {
         </p>
       </Reveal>
 
-      <ol className="mt-6 grid gap-5 md:grid-cols-3">
+      <ol className="mt-8 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
         {why.barriers.map((barrier, index) => (
           <Reveal as="li" key={barrier.title} delay={0.1 * index}>
-            <article className="group relative isolate flex h-full min-h-[19rem] flex-col overflow-hidden rounded-[var(--radius-card)] border border-night/10 bg-paper p-7 pb-32 transition-[transform,border-color,box-shadow] duration-300 hover:border-terra-700/40 hover:shadow-[0_24px_60px_-30px_rgba(127,76,36,0.45)] motion-safe:hover:-translate-y-1 sm:p-8 sm:pb-32">
+            <article className="relative isolate flex h-full flex-col">
               <Silhouette
                 name={barrier.figure}
                 tone="terra"
-                className={cn(
-                  'opacity-[0.14] transition-opacity duration-300 group-hover:opacity-25',
-                  figurePlacement[barrier.figure],
-                )}
+                className={cn('opacity-[0.08]', figurePlacement[barrier.figure])}
               />
-              <span className="font-display text-5xl leading-none font-extralight tracking-tight text-terra-900 tabular-nums">
+              <span className="font-display text-7xl leading-none font-light tracking-tight text-mata-800 tabular-nums">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="mt-6 h-px w-10 bg-terra-700" aria-hidden="true" />
+              <span className="mt-6 h-0.5 w-12 rounded-full bg-mata-400" aria-hidden="true" />
               <h3 className="mt-6 font-display text-xl font-medium tracking-tight text-night">{barrier.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft text-pretty sm:text-base">{barrier.text}</p>
             </article>
@@ -53,7 +50,7 @@ export function WhyWeExist() {
       </ol>
 
       <Reveal delay={0.1}>
-        <figure className="relative isolate mt-6 overflow-hidden rounded-[var(--radius-card)] bg-night px-7 py-12 sm:px-12 sm:py-14 lg:px-16">
+        <figure className="relative isolate mt-16 overflow-hidden sm:mt-20 rounded-[var(--radius-card)] bg-night px-7 py-12 sm:px-12 sm:py-14 lg:px-16">
           <Silhouette name="passaros" className="top-5 right-5 w-40 opacity-10 sm:w-56" />
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
             <div>
